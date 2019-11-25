@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace：命名空间，用于隔离sql语句，后续有重要作用-->
+<!--
+    动态代理开发规则
+    1.namespace必须是接口的全路径
+    2.接口的方法名必须与sql中的id一致
+    3.接口的入参与parameterType一致
+    4.接口的返回值与resultType一致
+-->
+<mapper namespace="mapper.UserMapper">
+
+    <select id="getUser" parameterType="string" resultType="user">
+        select * from `user` where `username` = #{0} and `password` = #{1}
+    </select>
+</mapper>
